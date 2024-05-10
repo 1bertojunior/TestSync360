@@ -31,6 +31,19 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function getFullNameAttribute()
+    {
+        $firstName = ucfirst(strtolower($this->first_name)); 
+        $lastName = ucfirst(strtolower($this->last_name));
+        
+        return "{$firstName} {$lastName}";
+    }
+
+    public function getProfileImageAttribute(){
+        $profile_deafult = 'img/default-profile.jpg';
+        return asset( $this->profile_image ?? $profile_deafult);
+    }
+
     public function addresses()
     {
         return $this->hasMany(Address::class);
