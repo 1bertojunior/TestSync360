@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('street_address')->nullable();
+            $table->string('street')->nullable();
             $table->string('neighborhood');
             $table->string('number')->nullable();
-            $table->string('postal_code');
+            $table->string('postal_code', 8);
             $table->string('complement')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
