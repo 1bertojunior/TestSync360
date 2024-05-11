@@ -1,0 +1,1 @@
+CREATE DATABASE sync360-db;
